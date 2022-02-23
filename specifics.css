@@ -1,0 +1,219 @@
+
+:root{
+    /*VARIABLES ARE ALSO INHERITED FROM 'GENERAL.CSS'*/
+    --door-bg-color: rgb(68, 83, 92);
+    --door-floor-color: #2B2B2B;
+
+}
+
+body{
+    background-image: url("https://thumbs.dreamstime.com/b/three-closed-white-doors-front-room-three-closed-white-doors-front-room-d-illustration-111782130.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: top;
+    background-size: contain;
+}
+
+
+/* Showboard ----------------------- */
+
+div.showboard{
+	/* outline: 3px solid black; */
+	display: flex;
+	margin: 1em auto 1em auto;
+	width: 90%;
+	max-width: 1000px;
+	padding: 5vmin 0 0 0;
+	background-color:  var(--door-bg-color);
+	box-shadow: inset 0 -1vmin 0px var(--door-floor-color); /*box-shadow and border-bottom are used toghether here to create the floor*/ 
+	border-bottom: 15px solid var(--door-floor-color);
+}
+
+div.showboard div.door, div.showboard div.door-perma{
+	cursor: pointer;
+	text-align: center;
+	margin: 0 auto 0 auto;
+	width: 25vmin; /*door's ratio: 330 / 380 */
+	height: calc(25vmin * 380 / 330);
+	margin: auto;
+	background-image: url("https://cdn.discordapp.com/attachments/715281659079032873/939353025359773746/web_closed_door_resized_png.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: bottom;
+}
+
+div.showboard div.door span, div.showboard div.door-perma span{
+	color: black;
+	font-weight: bold;
+	font-size: 4vmin;
+	padding-top: 6.3vmin; /*this aligns the number perfectly with the door*/
+	display: inline-block;
+	text-align: center;
+	line-height: normal;
+	vertical-align: middle;
+}
+
+
+/* -------- */
+
+div.showboard div.door div{
+    margin-top: -63%; /*aligns text on top of door*/
+    font-weight: bold;
+    color: white;
+    font-size: larger;
+}
+
+div.showboard div.door.picked , div.showboard div.door-perma.picked{
+	outline: 4px solid red; /*this one doesn't have to be overruled when the door is closed*/
+}
+
+/* -------- */
+
+div.showboard div.door.empty, div.showboard div.door-perma.empty{
+	background-image: url("https://media.discordapp.net/attachments/715281659079032873/939353002538598430/web_door_empty.png");
+}
+div.showboard div.door.empty span,  div.showboard div.door-perma.empty span{
+	color: transparent; /*Makes number on door be invisible*/
+}
+
+/* -------- */
+
+div.showboard div.door.prized ,div.showboard div.door-perma.prized{
+	background-image: url("https://cdn.discordapp.com/attachments/715281659079032873/939352983651614751/web_door_prized.png");
+}
+div.showboard div.door.prized span, div.showboard div.door-perma.prized span{
+	color: transparent;
+}
+
+/* -------- */
+/* even though the defaults of '.door' are already these we need to re-set them here for overruling the contents while the door is closed */
+div.showboard div.door.closed{
+	background-image: url("https://cdn.discordapp.com/attachments/715281659079032873/939353025359773746/web_closed_door_resized_png.png");
+	}
+div.showboard div.door.closed span{
+	color: black;
+}
+/*----------*/
+
+div.showboard div.door.loading{
+	background-image: url("https://cdn.discordapp.com/attachments/715281659079032873/939959621152550952/web-door-loading-2.gif");
+  	background-size: contain;
+}
+
+/* End of Showboards -------------------------- */
+
+
+/* Testing Grounds: ------------------------------- */
+main div.testingboard{
+    font-size: larger;
+    height: fit-content;
+    margin: 1em auto 1em auto;
+    background-color: var(--alternate-bg-color);
+    border-radius: 6px;
+    padding: 1em;
+    display: flex;
+    flex-wrap: wrap;
+}
+main div.testingboard div.left{
+    width: 55%;
+    max-height: 15cm;
+    overflow: auto;
+}
+
+/* ----- */
+main div.testingboard div.right{
+    box-sizing: border-box;
+    padding: 0.5em;
+    width: 45%;
+    height: auto;
+    max-height: 15cm;
+    overflow: auto;
+    margin-right: 0;
+    background-color: var(--main-column-color);
+    border-radius: 0.3em;
+}
+main div.testingboard div.right div.title{
+    text-align: center;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.3em 0 1em 0;
+}
+main div.testingboard div.right div#logs{
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0.3em;
+    font-size: 0.65em;
+}
+main div.testingboard div.right div#logs p{
+    margin: 0;
+    padding: 0;
+}
+
+/* ------ */
+main div.testingboard div.input{
+    margin: 0 auto 1em auto;
+}
+main div.testingboard div.input input{
+    margin-left: 4em;
+    transform: scale(1.5); 
+}
+
+
+main div.testingboard div#run-button{
+    margin: auto;
+    cursor: pointer;
+    width: fit-content;
+    padding: 0.2em;
+    border-radius: 2px;
+    font-weight: bold;
+    color: black;
+    background-color: var(--font-color);
+}
+
+main div.testingboard div#run-button:hover{
+    outline: 0.2em solid white;
+}
+
+main div.testingboard div.flexbox{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main div.testingboard div.flexbox div{ /* targets children of 'dv.flexbox'*/
+    height: 1em;
+    width: 1em;
+    border: 1px solid var(--font-color);
+    margin: 0.2em;
+}
+main div.testingboard div.win{
+    background-color: green;
+}
+main div.testingboard div.loss{
+    background-color: red;
+}
+
+main div.testingboard #text-results{
+    font-weight: bold;
+    text-align: center;
+    margin: auto;
+    padding-top: 1em;
+}
+
+
+main div.testingboard input#switch-doors{
+    transform: scale(1.3);
+}
+
+
+
+/* End of Testing Grounds-------------------------- */
+
+
+div#sourcecode{
+    text-align: center;
+}
+div#sourcecode a{
+    color: white;
+}
+
+/* end of Column stuff -----------------------------*/

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <title>Problema de Monty Hall</title>
+
+        <link rel="stylesheet" href="general.css">
+        <link rel="stylesheet" href="specifics.css">
+
+        <script src="general.js" defer></script>
+        <script src="specifics.js" defer></script>
+
+
+        <script src="https://kit.fontawesome.com/b545c1ffdc.js" defer></script> <!--Setup for Font Awesome-->
+
+    </head>
+<!-------------------------------------------------------------head/body------>
+    <body>
+
+        <!-- HEADER ========================================= -->
+        <header>
+            <div class="left">
+                <a href=""><span class="centered"><i class="fas fa-fire"></i>Ty's Hut</span></a>
+            </div>
+
+            <div class="right">
+                <a href=""><span class="centered"><i class="fas fa-home"></i>Home</span></a>
+                <a href=""><span class="centered"><i class="fas fa-shapes"></i>Projetos</span></a>
+                <a href=""><span class="centered"><i class="fas fa-code"></i>Códigos</span></a>
+                <a href=""><span class="centered"><i class="fas fa-phone"></i>Contato</span></a>
+            </div>
+        </header>
+        <!-- /HEADER -->
+
+
+
+
+            
+            <main>
+
+                <div class="icons">
+                    <div class="icons_left">
+                            <a href="" target="blank"><strong><i class="fas fa-apple-alt"></i> Código Fonte</strong></a>
+                            <a href="" target="blank"><strong><i class="fab fa-github"></i> github</strong></a>
+                            <a href="" target="blank"><strong><i class="fas fa-cloud"></i> pasta recipe</strong></a>
+                        </div>
+                        
+                        <div class="icons_right">
+                            <a href=""><strong><i class="fas fa-globe"></i> Lang (En/Pt)</strong></a>
+                        </div>
+                </div>
+                
+                <div id="lang-alert"></div><!-- This is used only if the user's language is different from the document's-->
+                <h1>O problema de Monty Hall</h1>
+                <div class="align_right"><time datetime="2022-02-04"></time><span class="weak">2022 - fev - 20  </span></div>
+
+                <h2>Apresentação:</h2>
+                    <p>Levado à atenção do público pelo programa de televisão <a title="Monty Hall's Wikpedia page" href="">Let's Make a Deal</a>, o <strong>Problema de Monty Hall</strong>é uma questão de probabilidade que é frequentemente fonte de grande confusão e frustração quando se trata de entender como sua conclusão vem a ser. É com esse pensamento em mente que esse artigo tenta clarificar como realmente ele funciona em termos matemáticos e oferece a você a habilidade de gerar verdadeiras <strong>amostras de testes</strong> para ajudá-lo a verificar tais alegações por você mesmo de maneira mais prática.</p>
+                <h2>Como funciona:</h2>
+                    <p>O problema começa com um apresentador (originalmente o próprio<a title="Monty Hall's Wikpedia page" href="">Monty Hall</a> em si) e <strong>três portas fechadas</strong>, <strong>uma delas contendo um prêmio</strong>. O mecanismo por qual isso opera é o seguinte:</p>
+                    <ol>
+                        <li>Você começa <strong>escolhendo uma das portas</strong> como sua.</li>
+                        <li>O apresentador, sabendo a posição do prêmio por trás das portas, procede a <strong>revelar uma porta vazia</strong> das duas que você não escolheu.</li>
+                        <li>É, então, que você é apresentado com essa escolha: você pode ou<strong>trocar para a porta restante </strong> ou <strong>manter a que você havia escolhido primeiramente.</strong>.</li>
+                        <li>Quando a escolha é feita, <strong>todas as portas são abertas</strong> revelando se você pegou ou não a porta premiada – se você ganhou ou perdeu.</li>
+                    </ol>
+
+                <h2>O problema:</h2>
+                    <p>A questão fundamental nesse problema é <strong>existe alguma diferença estatística nas suas chances de ganhar dependendo na sua escolha de trocar de porta ou mantê-la?</strong> E se sim, <strong>qual seria a alternativa mais provável de terminar em vitória? </strong> as estatísticas desse problema, como estatísticas comumente são, acabam sendo um tanto abstratas e difíceis de totalmente compreender para aqueles estrangeiros a tais conceitos.</p>
+                 <h2>Explicação:</h2>
+                    <p><span class="weak">Mantenha o mouse em cima de uma das portas ou a clique para revelar seus interiores. A porta escolhida é contornada de vermelho (toda vez que você recarregar esse site a combinação de portas escolhidas e premiadas é randomizado).</span></p>
+            
+                    <p>Vamos começar com a suposição justa de que <strong>a qualidade da sua primeira escolha de portas é totalmente aleatória</strong> - isto é, independente da sua porta selecionada ela não têm chances diferentes de nenhuma das outras duas.</p>
+
+                    <div class="showboard" id="showboard1">
+                        <div class="door empty closed"><span>1</span></div>
+                        <div class="door empty closed"><span>2</span></div>
+                        <div class="door empty closed"><span>3</span></div>
+                    </div>
+
+                    <p>Assim, podemos dizer que você carrega <strong>1 de 3 chances</strong>de ter escolhido a <strong>porta premiada</strong>, enquanto as duas outras portas, juntas, carregam<strong>2 de 3 chances</strong> (1/3 + 1/3 = 2/3) de conter o <strong>prêmio</strong>.</p>
+                    <p>O apresentador então procede a <strong>abrir uma porta</strong>.</p>
+
+                    <div class="showboard" id="showboard2">
+                        <div class="door empty closed"><span>1</span></div>
+                        <div class="door empty closed"><span>2</span></div>
+                        <div class="door empty closed"><span>3</span></div>
+                    </div>
+
+                    <p>É aqui que lhe é perguntado: <strong>"você gostaria de trocar de portas ou manter a que você já escolheu?"</strong></p>
+                    <p>E é aqui que a verdadeira natureza desse problema é revelada: as <strong>chances de 2/3 de prêmio</strong> das duas portas que você não escolheu primeiramente estão <strong>completamente transferidas para a porta restante</strong>, já que a outra foi revelada vazia. Portanto a porta que você agora possui contém <strong>chances de 1/3</strong> de ser premiada enquanto a alternativa contém <strong>chances de 2/3</strong>.</p>
+
+                    <div class="showboard" id="showboard3">
+                        <div class="door empty closed"><span>1</span></div>
+                        <div class="door empty closed"><span>2</span></div>
+                        <div class="door empty closed"><span>3</span></div>
+                    </div>
+
+                    <p>Com essa informação se torna claro de que a escolha mais inteligente nesse caso é, enfim, <strong>mudar de portas</strong>. No fim do dia, não importa qual porta você inicialmente escolheu, ou qual porta foi revelada vazia, você sempre vai ter <strong>33% de chance de vitória quando não troca</strong> e <strong>66% de chance quando troca</strong> de porta.</p>
+
+                    <div class="showboard" id="showboard4">
+                        <div class="door empty closed"><span>1</span></div>
+                        <div class="door empty closed"><span>2</span></div>
+                        <div class="door empty closed"><span>3</span></div>
+                    </div>  
+
+                    <br>
+                    <p>Se isso não caiu bem com você, tente ver as coisas desse jeito:</p>
+                    <p>se a gente começar com a suposição de que <strong>o caso mais provável sempre será o que vai ocorrer</strong> (o que é realmente errôneo, mas pode ser um tanto útil quando trabalhando com cenários hipotéticos) as coisas podem ser um pouco mais simples.</p>
+                    <p>quando você inicialmente escolhe uma porta você tem <strong>1/3 (33%) de chances</strong>de reter a porta premiada, portanto você é <strong>mais provável de não ter a correta</strong>, então digamos que ela é simplesmente <strong>vazia</strong>.</p>
+                    <p>O apresentador, então, abre outra porta – uma <strong>vazia</strong> também.</p>
+                    <p>Bem, só pode haver <strong>2 portas vazias</strong>no jogo para começar, então você pode simplesmente dizer que se você <strong>primeiro escolheu uma porta vazia</strong> (porque era mais provável que você teria) e <strong>a segunda porta vazia</strong> acaba de ser revelada também, então <strong>a porta remanescente</strong> simplesmente <strong>há de ser a premiada.</strong>.</p>
+
+                <h2>Área de Testes:</h2>
+                    <p>Esta é a nossa área de testes randomizada. Aqui você pode testar por você mesmo a veracidade de tudo discutido nesse artigo.</p>
+                    <!-- TESTING BOARD ========================================================== -->
+                    <div class="testingboard">
+                        <div class="left">
+                            <div class="input">
+                                <label for="trials">Número de tentativas:</label>
+                                <input type="number" id="number-of-trials" name="trials" min="1" max="10000" value="50"> <!-- I know you can just type with the keyboard and for some reason the 'min max' does nothing then but whatever-->
+                            </div>    
+                            <div class="input">
+                                <label for="switch">Trocar portas:</label>
+                                <input type="checkbox" id="switch-doors" name="switch">
+                            </div>
+                            <div class="flexbox"><div class="win"></div><span><strong> → ganha</strong></span><br></div>
+                            <div class="flexbox"><div class="loss"></div><span><strong> → perde</strong></span><br></div>
+                            <br>
+                            <div class="input">
+                                <div id="run-button">Iniciar</div>
+                            </div>    
+                            <div class="flexbox" id="results">
+                            </div>
+                        </div>
+                        <div class="right">
+                            <div class="title">Processamento:</div>
+                            <div id="logs"><p>(e)Escolhido - (p)Premiado - (r)Removido<br><br></p></div>
+                        </div>
+                        <div id="text-results"> </div>
+                    </div>
+                    
+                    <!--End of Testing Board ============================= -->
+                    <div id="sourcecode"><a href=""><span class="weak">código</span></a></div>
+
+                <h2>Notas de desfecho:</h2>
+                    <p>Ei, se você ainda não completamente compreende a razão por trás desse fenômeno isso é completamente ok. Tente manter isso no fundo da sua mente repensar o problema as vezes, eventualmente vai fazer sentido.</p>
+                    <blockquote >
+                        "Por tão simples que isso pode ser explicado é realmente difícil de se compreender; pessoalmente me levou alguns meses para entender mesmo depois de inicialmente ouvir sobre o problema. Exatas pode ser uma matéria complicada e, francamente, toda a área de probabilidades é simplesmente impossível."
+                        <p class="align_right">- Ty</p>
+                    </blockquote>
+
+
+
+            </main>
+
+        <footer>
+            <p> <strong>Contato:</strong> <br>
+                bmtailan@gmail.com<br>
+                <a href="github.com">github.com/typhs</a>
+            </p>
+
+            <hr class="small">
+            <p><strong>Tudo nesse website é inteiramente original</strong></p>
+            <p title="That means its free to use! :D">Copyright © 2022 Tailan.<br>No Rights Reserved</p>
+        </footer>
+
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script><!-- setup for Jquery-->
+        
+    </body>
+    
+
+</html>

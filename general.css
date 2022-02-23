@@ -1,0 +1,345 @@
+:root{  
+    /*variables: --------------------------------*/
+    --font-color: white;
+
+    --pallet1-color: #464646;
+    --pallet2-color: #3c3842;
+
+    --body-bg-color: #302e36;
+    --header-bg-color: var(--body-bg-color);
+    --main-background-color: #1f1f1f;
+    
+    --h1-bg-color: var(--pallet1-color);
+    --h2-bg-color: var(--pallet1-color);
+    --side-icons-bg-color:#444347;
+    --alternate-bg-color: #111111;
+
+    --text-selection-color: #b64725;
+    --text-highlight-color: #ffd700;
+
+    --main-box-shadow: -3px 3px rgba(0, 0, 0, 0.5);
+    /*-------------------------------------------*/
+}
+
+body,html{ min-height: 100%; padding: 0; margin: 0;} /*this makes head and body both fill the whole page*/
+
+body{
+    color: var(--font-color);
+    background-color: var(--body-bg-color);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+::selection { /*user text selection*/
+    background:  var(--text-selection-color);
+}
+
+/* Header stuff: -----------------------------------------*/
+header{
+    box-sizing: border-box; /*not optional*/
+    z-index: 10; /* brings to front */
+    font-size: 25px;
+    position: -webkit-sticky; /*for IOS browsers*/
+    position: sticky;
+    transition: top 0.3s ease-in; 
+    top: 0;
+    display: flex;
+    overflow: hidden;
+    width: 100%;  
+    height: fit-content;
+    padding: 0 3.5em 0 2em;
+    background-color: var(--header-bg-color);
+}
+
+.nav-up{top: -5em;} /*for hiding the header on scroll*/
+
+header i{ /*Font awesome's icons steup*/
+    padding: 0 6px 0 0;
+    font-size: 0.7em; 
+}
+
+header .left{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 0.4em;
+    font-size: larger;
+    height: fit-content;
+    margin: auto auto 0.5em 0;
+}
+
+header .right{
+    margin: auto 0em auto auto;
+    height: 2em;
+}
+
+header a{
+    box-sizing: border-box;
+    vertical-align: middle;
+    padding: 1em 0em 12px 0;
+    margin-right: 0.5em; /* spacing between the 'a's */
+    color: var(--font-color);
+    text-decoration: none;
+    border-bottom: 3px solid transparent; /*invisible placeholder*/
+}
+
+header .right a:hover{
+    border-bottom: 3px solid var(--font-color);
+}
+/* end of Header stuff -----------------------------------------------*/
+
+/* General Icon styles: */
+div.icons_left a,
+div.icons_right a{
+    border-radius: 0.2em;
+    text-decoration: none;
+    justify-content: center;
+    color: var(--font-color);
+    background-color: var(--side-icons-bg-color) ;
+    box-shadow: var(--main-box-shadow);
+}
+
+div.icons_left a strong,
+div.icons_right a strong{ /* this is needed because of the cascade (default strong color would have preference otherwise)*/
+    color: var(--font-color) ;
+}
+
+div.icons_left a:hover,
+div.icons_right a:hover{
+    outline: 3px solid var(--font-color);
+}
+/* end of Side Icons ------------------------------------- */
+
+/* MAIN stuff: --------------------------------------*/
+main{
+    max-width: 900px;
+    margin: 5em auto 2em auto;
+    padding: 2em;
+    border-radius: 1em;
+    background-color: var(--main-background-color);
+
+    box-shadow: 0 0 17em 4em black , inset 0 0 0 3px rgba(0, 0, 0, 0.4);
+}
+
+main h1{
+    margin: 1em auto 0 auto;
+    padding: 0.2em 0 0.2em 0.5em;
+    border-radius: 0.1em;
+    box-shadow: var(--main-box-shadow);
+    background-color: var(--h1-bg-color);
+}
+
+main h2{
+    margin: 2em 0 0.5em 0;
+    padding: 0.2em 0 0.2em 0.5em;
+    min-width: 10em;
+    box-shadow: var(--main-box-shadow);
+    border-radius: 0.1em;
+    width: fit-content;
+    background-color: var(--h2-bg-color);   
+}
+
+main div#lang-alert{
+    margin: 0.5em auto 0.5em auto;
+    width: fit-content;
+    max-width: 99%;
+    text-align: center;
+    font-size: larger;
+    padding: 0.4em;
+    border-radius: 5px;
+    outline: 1px solid var(--font-color);
+    background-color: var(--alternate-bg-color);
+}
+main div#lang-alert:empty{/*Hides 'lang-alert' when it's empty/*/
+    margin: auto;
+    padding: 0;
+    outline: none;
+}
+
+main a{
+    color: var(--text-highlight-color);
+    font-weight: bold;
+}
+
+main span.weak{
+    font-weight: lighter;
+    font-size: smaller;
+}
+
+main strong{
+    color: var(--text-highlight-color);
+}
+
+main blockquote,
+main ol,
+main ul{
+    border-left: solid 7px var(--font-color);
+    padding: 1em 1em 1em 1.3em;
+    background-color: var(--alternate-bg-color);    
+    border-radius: 0 1em 1em 0;
+}
+main ol,
+main ul{
+    margin: 0 1em 0 1em; /* same alignment as a <p> */
+}
+
+main .align_right{
+    margin: auto 0 auto auto;
+    text-align: right;
+}
+
+main p{
+    padding: 0 1em 0 1em;
+    text-align: justify;
+}
+
+main li{
+    padding: 0.3em;
+    text-align: justify;
+}
+/* end of Main stuff -----------------------------*/
+
+
+/* Footer stuff -----------------------------------------*/
+footer{
+    border-top: 2px solid var(--pallet2-color);
+    padding: 0.5em;
+    background-color: var(--body-bg-color);
+}
+
+footer p{
+    margin: 0em;
+    font-size: smaller;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;    
+    letter-spacing: 0.2em;
+}
+
+footer a{
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+}
+
+footer hr.small{
+    color: rgba(255, 255, 255, 0.2);
+    width: 10em;
+    margin: 0.7em auto 0.7em auto;   
+}
+
+/* end of Footer Stuff ---------------------------------- */
+
+
+/* MEDIA QUERIES: ================================================================ */
+@media only screen and (max-width: 1000px) {/*/* SCREENS SMALLER THAN 1000px */
+    /* adjustments for header stuff */
+        
+    header{
+        font-size: 1.4em;
+        top: 0;
+        display: block;
+        flex-wrap: wrap;
+        margin: 0;
+        overflow: auto;
+        width: 100%;  
+        height: fit-content;
+        padding: 0 0.3em 0 0.3em;
+        background-color: var(--header-bg-color);
+    } 
+
+    header .centered{
+        text-align: center;
+        margin: auto;
+    }
+
+    header i{ /*Font awesome's icons steup*/
+        padding: 0 6px 0 0;
+        font-size: 1em;
+    }
+
+    header .left{
+        text-align: center;
+        letter-spacing: normal ;
+        height: fit-content;
+        margin: auto;
+        
+    }
+
+    header .right{
+        text-align: center;
+        margin: auto 0em auto auto;
+        height: auto;
+    }
+    header a{
+        text-align: center;
+        display: inline-flex;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        color: var(--font-color);
+        text-decoration: none;
+        border-bottom: 3px solid transparent;
+    }
+    header .right a{
+        width: 23%;
+    }
+
+    header .right a:hover{
+        border-bottom: 3px solid var(--font-color);
+    }
+}
+
+/* SIDE ICONS: --------------------------------------------- */
+@media only screen and (min-width: 1300px) { /*ON SCREENS BIGGER THAN 1300px */
+    /* adjustments for side icon stuff */
+    div.icons_right{
+        overflow: visible;
+        position: absolute;
+        padding: 0;
+        margin: 11em 1em 0 1em;
+        right: 0;
+        width: fit-content;
+    }
+
+    div.icons_left{
+        overflow: visible;
+        left: 0;
+        position: absolute;
+        margin: 14em 1em 0 1em;
+        width: fit-content;
+    }
+
+    div.icons_left a,
+    div.icons_right a{
+        display: flex;
+        padding: 0.5em 1em 0.5em 1em;
+        margin: 2em 0 0 0;
+        border-radius: 0.2em;
+        text-decoration: none;
+        justify-content: center;
+        color: var(--font-color);
+        background-color: var(--side-icons-bg-color) ;
+        box-shadow: var(--main-box-shadow);
+    }
+}
+
+@media only screen and (max-width: 1300px) {/*ON SCREENS SMALLER THAN  1300px*/
+    div.icons{
+        font-size: medium;
+        margin: auto;
+        width: fit-content;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    div.icons_left,
+    div.icons_right{
+        width: fit-content; 
+        display: flex;
+        flex-wrap: wrap;
+    }
+    div.icons_left a,
+    div.icons_right a{
+        width: fit-content;
+        margin: 0.2em;
+        padding: 0.5em;
+    }
+}
+
+/*end of Media Queries ========================================================*/
